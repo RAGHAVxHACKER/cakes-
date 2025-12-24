@@ -1,0 +1,57 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8e8f8; /* Lavender background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #ffb6c1; /* Blush pink */
+    text-align: center;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+}
+h1, h2 {
+    font-family: 'Dancing Script', cursive; /* Soft, feminine font */
+}
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+#cakes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.cake-item {
+    border: 1px solid #ffb6c1;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+input, textarea, select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+button {
+    background-color: #ffb6c1;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #ff91a4;
+}

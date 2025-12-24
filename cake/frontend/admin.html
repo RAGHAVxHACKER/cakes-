@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <style>
+        body { font-family: Arial; background: #f8e8f8; padding: 20px; }
+        form { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <h2>Add Cake</h2>
+    <form id="add-cake">
+        <input type="text" id="cake-name" placeholder="Cake Name" required>
+        <input type="text" id="cake-desc" placeholder="Description" required>
+        <input type="number" id="cake-price" placeholder="Price" required>
+        <button type="submit">Add Cake</button>
+    </form>
+    <h2>Add Location</h2>
+    <form id="add-location">
+        <input type="text" id="location-city" placeholder="City" required>
+        <button type="submit">Add Location</button>
+    </form>
+    <h2>View Orders</h2>
+    <div id="orders"></div>
+    <script>
+        // Add cake
+        document.getElementById('add-cake').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const cake = {
+                name: document.getElementById('cake-name').value,
+                description: document.getElementById('cake-desc').value,
+                price: parseFloat(document.getElementById('cake-price').value)
+            };
+            fetch('http://localhost:3000/api/cakes', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(cake)
+            }).then(() => alert('Cake added!'));
+        });
+
+        // Add location
+        document.getElementById('add-location').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const location = { city: document.getElementById('location-city').value };
+            fetch('http://localhost:3000/api/locations', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(location)
+            }).then(() => alert('Location added!'));
+        });
+
+        // Load orders
+        fetch('http://localhost:3000/api/orders')
+            .then(res => res.json())
+            .then(orders => {
+                const div = document.getElementById('orders');
+                orders.forEach(order => {
+                    div.innerHTML += `<p>${order.name} - ${order.address} - ${order.datetime}</p>`;
+                });
+            });
+    </script>
+</body>
+</html>

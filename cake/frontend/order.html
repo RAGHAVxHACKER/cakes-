@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Cake</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Place Your Order</h1>
+    </header>
+    <main>
+        <form id="order-form">
+            <label>Name: <input type="text" id="name" required></label>
+            <label>Phone: <input type="tel" id="phone" required></label>
+            <label>Delivery Address: <textarea id="address" required></textarea></label>
+            <label>Delivery Date/Time: <input type="datetime-local" id="datetime" required></label>
+            <label>Special Instructions: <textarea id="instructions"></textarea></label>
+            <label>Cake Selection: <select id="cake-select" required></select></label>
+            <label>Payment Method: <select id="payment">
+                <option>Credit Card</option>
+                <option>PayPal</option>
+            </select></label>
+            <button type="submit">Submit Order</button>
+        </form>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
